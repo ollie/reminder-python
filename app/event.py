@@ -33,16 +33,16 @@ class Event:
         self.id = value
 
     def set_show(self, value):
-        self.show = self.boolean(value)
+        self.show = value
 
     def set_birthday(self, value):
-        self.birthday = self.boolean(value)
+        self.birthday = value
 
     def set_nameday(self, value):
-        self.nameday = self.boolean(value)
+        self.nameday = value
 
     def set_payment(self, value):
-        self.payment = self.boolean(value)
+        self.payment = value
 
     def set_year(self, value):
         self.year = value
@@ -56,12 +56,6 @@ class Event:
     def set_name(self, value):
         self.name = value
 
-    def boolean(self, value):
-        if value:
-            return True
-        else:
-            return False
-
     def localized_event_date(self):
         return self.event_date.strftime('%d. %m. %Y')
 
@@ -69,7 +63,7 @@ class Event:
         name = self.name
         kind = self.kind()
 
-        if self.kind():
+        if kind:
             name = '{name} {kind}'.format(name=name, kind=kind)
 
         if self.birthday:
